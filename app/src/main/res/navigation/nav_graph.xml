@@ -2,11 +2,24 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
-
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.myreceiptapp.view.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainListFragment">
+    <fragment
+        android:id="@+id/mainListFragment"
+        android:name="com.example.myreceiptapp.view.MainListFragment"
+        android:label="Recetas"
+        tools:layout="@layout/fragment_main_list">
+        <action
+            android:id="@+id/action_mainListFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.example.myreceiptapp.view.CategoriesFragment"
+        android:label="Categorías"
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_mainListFragment"
+            app:destination="@id/mainListFragment" />
+    </fragment>
 </navigation>
